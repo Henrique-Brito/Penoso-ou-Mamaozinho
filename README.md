@@ -6,7 +6,7 @@
 
 __Legenda__
 
-:heavy_check_mark: : Completo
+:heavy_check_mark:  Completo
 
 :x: Time avaliou desnecessário 
 
