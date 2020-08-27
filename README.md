@@ -2,6 +2,16 @@
 
 É um fórum para os alunos se informarem e compartilharem informações sobre as disciplinas ofertadas pela UFMG. Cada disciplina possui uma página dedicada em que os alunos podem fazer comentários sobre a matéria, achar informações sobre o professor alocado a ela e compartilhar links de materiais úteis. Além disso, os comentários serão ordenados por um sistema de 'likes' e 'dislikes', dessa forma, os alunos podem achar os comentários mais relevantes de forma mais eficiente.
 
+
+
+__Legenda__
+
+:heavy_check_mark: : Completo
+
+:x: Time avaliou desnecessário 
+
+:construction_worker: Em construção
+
 ### Sprint Planning
 1. __Home__
 * Barra de busca (Live Search) - (Felipe, Wesley); 
@@ -19,10 +29,10 @@
 * Pesquisa com base no nome ou id da disciplina - (Henrique, Vitor);
 * Adicionar usuário - (Henrique, Vitor);
 * Verificar usuário - (Henrique, Vitor);
-4. __Sistema de login__
-* Página de cadastro - (Felipe, Wesley);
-* Verificar se é um email válido - (Henrique, Vitor);
-* Página de login - (Henrique, Vitor);
+4. __Sistema de login__ 
+* Página de cadastro - (Felipe, Wesley) :construction_worker: ;
+* Verificar se é um email válido - (Henrique, Vitor) :construction_worker: ;
+* Página de login - (Henrique, Vitor) :construction_worker: ;
 5. __Fomentar banco de dados com dados públicos da UFMG sobre disciplinas__
 * Raspar dados disponibilizados pela Pró-Grad - (Felipe, Wesley);
 * Integrar banco de dados do PoM com dados públicos das disciplinas - (Felipe, Wesley);
