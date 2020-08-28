@@ -15,8 +15,8 @@ __Legenda__
 ### Sprint Planning
 1. __Home__
 * Barra de busca (Live Search) - (Felipe, Wesley); 
-* Top disciplinas com mais aprovações e mais reprovações- (Henrique, Vitor);
-* Botão para página de login - (Henrique, Vitor);
+* Top disciplinas com mais aprovações e mais reprovações- (Henrique, Vitor) :construction_worker:;
+* Botão para página de login - (Henrique, Vitor) :construction_worker: ;
 2. __Disciplinas__
 * Página para visualizar disciplina - (Felipe, Wesley) :construction_worker: ;
 * Página para usuário criar disciplinas - (Felipe, Wesley);
