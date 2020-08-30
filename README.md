@@ -30,9 +30,9 @@ __Legenda__
 * Adicionar usuário - (Henrique, Vitor);
 * Verificar usuário - (Henrique, Vitor);
 4. __Sistema de login__ 
-* Página de cadastro - (Felipe, Wesley) :construction_worker: ;
+* Página de cadastro - (Felipe, Wesley) :heavy_check_mark: ;
 * Verificar se é um email válido - (Henrique, Vitor) :construction_worker: ;
-* Página de login - (Henrique, Vitor) :construction_worker: ;
+* Página de login - (Henrique, Vitor) :heavy_check_mark: ;
 5. __Fomentar banco de dados com dados públicos da UFMG sobre disciplinas__
 * Raspar dados disponibilizados pela Pró-Grad - (Felipe, Wesley);
 * Integrar banco de dados do PoM com dados públicos das disciplinas - (Felipe, Wesley);
