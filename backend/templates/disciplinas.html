@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1>Disciplinas</h1>
+	<br>
+	<ul class="list-group">
+	{% for disciplina in disciplinas %}
+		<li class="list-group-item"><a href="disciplina/{{disciplina.id}}">{{disciplina.title}} , Mamao : {{disciplina.mamao}}  || Penoso: {{disciplina.penoso}}  </a></li>
+	{% endfor %}
+	</ul>
+
+{% endblock %}

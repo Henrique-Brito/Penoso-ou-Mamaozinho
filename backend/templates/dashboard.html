@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+	<h1>Dashboard <small>Welcome {{session.username}}</small></h1>
+	<a class="btn btn-success" href="/add_disciplina"> Add Disciplina </a>
+	<hr>
+
+	<table class="table table-striped">
+		<tr>
+			<th>ID</th>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Date</th>
+			<th></th>
+			<th></th>
+		</tr>
+		{% for disciplina in disciplinas %}
+			<tr>
+				<td>{{disciplina.id}}</td>
+				<td>{{disciplina.title}}</td>
+				<td>{{disciplina.author}}</td>
+				<td>{{disciplina.create_date}}</td>
+				<td><a href="edit_disciplina/{{disciplina.id}}" class="btn btn-success pull-right">Edit</a></td>
+				<td>
+					<form action="{{url_for('delete_disciplina', id=disciplina.id)}}" method="POST">
+						<input type="hidden" name="method" value="DELETE">
+						<input type="submit" value="Delete" class="btn btn-danger">
+					</form>
+				</td>
+				<td></td>
+			</tr>
+		{% endfor %}
+	</table>
+
+{% endblock %}
