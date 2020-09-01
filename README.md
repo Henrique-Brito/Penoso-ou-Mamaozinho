@@ -18,10 +18,10 @@ __Legenda__
 * Top disciplinas com mais aprovações e mais reprovações- (Henrique, Vitor) :construction_worker:;
 * Botão para página de login - (Henrique, Vitor) :construction_worker: ;
 2. __Disciplinas__
-* Página para visualizar disciplina - (Felipe, Wesley) :construction_worker: ;
+* Página para visualizar disciplina - (Felipe, Wesley) :heavy_check_mark: ;
 * Página para usuário criar disciplinas - (Felipe, Wesley);
 * Opção para usuário adicionar comentario - (Felipe, Wesley) :construction_worker: ;
-* Opção para usuário dar nota a disciplina - (Felipe, Wesley) :construction_worker: ;
+* Opção para usuário dar nota a disciplina - (Felipe, Wesley) :heavy_check_mark: ;
 * Sessao para links úteis da disciplina - (Felipe, Wesley) :construction_worker: ;
 3. __API dos dados__
 * Gerar lista das disciplinas - (Henrique, Vitor);
