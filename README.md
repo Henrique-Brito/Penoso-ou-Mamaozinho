@@ -20,9 +20,9 @@ __Legenda__
 2. __Disciplinas__
 * Página para visualizar disciplina - (Felipe, Wesley) :heavy_check_mark: ;
 * Página para usuário criar disciplinas - (Felipe, Wesley);
-* Opção para usuário adicionar comentario - (Felipe, Wesley) :construction_worker: ;
+* Opção para usuário adicionar comentario - (Felipe, Wesley) :heavy_check_mark: ;
 * Opção para usuário dar nota a disciplina - (Felipe, Wesley) :heavy_check_mark: ;
-* Sessao para links úteis da disciplina - (Felipe, Wesley) :construction_worker: ;
+* Sessao para links úteis da disciplina - (Felipe, Wesley) :heavy_check_mark: ;
 3. __API dos dados__
 * Gerar lista das disciplinas - (Henrique, Vitor);
 * Adicionar nova disciplina - (Henrique, Vitor);

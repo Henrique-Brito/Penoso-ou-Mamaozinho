@@ -1,0 +1,37 @@
+.page-header {
+  font-size: 3.6rem;
+  padding: 3.6rem 0;
+}
+.course-name-area {
+  font-size: 2.4rem;
+}
+.rating-area {
+  padding-top: 0.6rem;
+}
+.user-rating {
+  /* margin-top: 2.4rem;  */
+  display: flex;
+  justify-content: center;
+}
+#rating-course {
+  margin-left: 0.6rem;
+}
+label {
+  font-size: 1.2rem;
+}
+.myText {
+  font-size: 3.6rem;
+  align-items: center;
+}
+.comment_button {
+  text-align: center;
+  margin-left: 1.2rem;
+}
+
+.comment_form {
+  margin: 1.2rem 0;
+}
+
+.close_button {
+  margin-right: 1.2rem;
+}
