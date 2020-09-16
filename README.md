@@ -25,10 +25,10 @@ __Legenda__
 * Sessao para links úteis da disciplina - (Felipe, Wesley) :heavy_check_mark: ;
 3. __API dos dados__
 * Gerar lista das disciplinas - (Henrique, Vitor);
-* Adicionar nova disciplina - (Henrique, Vitor);
+* Adicionar nova disciplina - (Henrique, Vitor):heavy_check_mark: ;
 * Pesquisa com base no nome ou id da disciplina - (Henrique, Vitor);
-* Adicionar usuário - (Henrique, Vitor);
-* Verificar usuário - (Henrique, Vitor);
+* Adicionar usuário - (Henrique, Vitor):heavy_check_mark: ;
+* Verificar usuário - (Henrique, Vitor):heavy_check_mark: ;
 4. __Sistema de login__ 
 * Página de cadastro - (Felipe, Wesley) :heavy_check_mark: ;
 * Verificar se é um email válido - (Henrique, Vitor) :construction_worker: ;
