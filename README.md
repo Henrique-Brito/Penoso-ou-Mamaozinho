@@ -8,18 +8,18 @@ __Legenda__
 
 :heavy_check_mark:  Completo
 
-:x: Time avaliou desnecessário 
+:x: Time avaliou desnecessário
 
 :construction_worker: Em construção
 
 ### Sprint Planning
 1. __Home__
-* Barra de busca (Live Search) - (Felipe, Wesley) :construction_worker: ; 
+* Barra de busca (Live Search) - (Felipe, Wesley) :construction_worker: ;
 * Top disciplinas com mais aprovações e mais reprovações- (Henrique, Vitor) :heavy_check_mark:;
 * Botão para página de login - (Henrique, Vitor) :heavy_check_mark: ;
 2. __Disciplinas__
 * Página para visualizar disciplina - (Felipe, Wesley) :heavy_check_mark: ;
-* Página para usuário criar disciplinas - (Felipe, Wesley) :construction_worker: ;
+* Página para usuário criar disciplinas - (Felipe, Wesley) :heavy_check_mark: ;
 * Opção para usuário adicionar comentario - (Felipe, Wesley) :heavy_check_mark: ;
 * Opção para usuário dar nota a disciplina - (Felipe, Wesley) :heavy_check_mark: ;
 * Sessao para links úteis da disciplina - (Felipe, Wesley) :heavy_check_mark: ;
@@ -29,13 +29,13 @@ __Legenda__
 * Pesquisa com base no nome ou id da disciplina - (Henrique, Vitor);
 * Adicionar usuário - (Henrique, Vitor):heavy_check_mark: ;
 * Verificar usuário - (Henrique, Vitor):heavy_check_mark: ;
-4. __Sistema de login__ 
+4. __Sistema de login__
 * Página de cadastro - (Felipe, Wesley) :heavy_check_mark: ;
 * Verificar se é um email válido - (Henrique, Vitor) :construction_worker: ;
 * Página de login - (Henrique, Vitor) :heavy_check_mark: ;
 5. __Fomentar banco de dados com dados públicos da UFMG sobre disciplinas__
 * Raspar dados disponibilizados pela Pró-Grad - (Felipe, Wesley); :construction_worker:
-* Integrar banco de dados do PoM com dados públicos das disciplinas - (Felipe, Wesley); :construction_worker: 
+* Integrar banco de dados do PoM com dados públicos das disciplinas - (Felipe, Wesley); :construction_worker:
 
 ### Tecnologia:
 * __Frontend__: vue.js
