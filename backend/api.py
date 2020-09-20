@@ -161,11 +161,47 @@ def cadastroAvaliacaoDisciplina(categoria, id_disciplina, id_user):
     return True, None
     
 
+def cadastroAvaliacaoComentario(id_comentario, categoria, id_user):
+    try:
+        id_user = int(id_user)
+
+        # create mysql cursor
+        cur = mysql.connection.cursor()
+
+        query = """
+                SELECT * FROM avaliacoes_comentario
+                    WHERE id_comentario = %s AND id_user = %s
+            """
+
+        # get user by username
+        result = cur.execute(query, [id_comentario, id_user])
+
+        if result > 0:
+            return False, 'Voce ja avaliou essa disciplina'
+
+        # adiciona voto de mamao ou penoso para a disiciplina
+        cur.execute(
+            f"""
+                INSERT INTO {categoria}(id_comentario, id_user) 
+                    VALUES (%s, %s)
+            """, 
+            (id_comentario, id_user)
+        )
+
+        mysql.connection.commit()
+    
+    except Exception as e:
+        print(e)
+        return False, "Um ocorreu enquanto processava"
+
+    return True, None
+    
+
 def cadastroDisciplina(nome, penoso_mamao, id_user):
     try:
         nome_limpo = ' '.join([sanitizeString(x) for x in nome.split(' ')])
         id_user = int(id_user)
-
+        print("foi")
         # create mysql cursor
         cur = mysql.connection.cursor()
 
@@ -186,10 +222,12 @@ def cadastroDisciplina(nome, penoso_mamao, id_user):
 
         mysql.connection.commit()
 
+        insertion = cur.execute("SELECT * FROM disciplinas WHERE nome_limpo = %s", [nome_limpo])
         data = cur.fetchone()
         id_disciplina = data['id']
 
-    except:
+    except Exception as e:
+        print(e)
         return False, "ocorreu um erro enquanto processava"
     
     return cadastroAvaliacaoDisciplina(penoso_mamao, id_disciplina, id_user)
@@ -208,6 +246,29 @@ def cadastroComentario(id_user, id_disciplina, texto):
                     VALUES (%s, %s, %s)
             """, 
             (id_user, id_disciplina, texto)
+        )
+
+        mysql.connection.commit()
+
+    except:
+        return False, "ocorreu um erro enquanto processava"
+    
+    return True, None
+
+
+def cadastroLink(id_user, id_disciplina, titulo, link):
+    try:
+        id_user = int(id_user)
+
+        # create mysql cursor
+        cur = mysql.connection.cursor()
+
+        cur.execute(
+            """
+                INSERT INTO links(id_user, id_disciplina, titulo, link) 
+                    VALUES (%s, %s, %s, %s)
+            """, 
+            (id_user, id_disciplina, titulo, link)
         )
 
         mysql.connection.commit()
@@ -251,6 +312,36 @@ def getComentarios(id_disciplina=None):
     cur.close()
 
     return comentarios
+
+
+def getLinks(id_disciplina=None):
+    # create mysql cursor
+    cur = mysql.connection.cursor()
+
+    filter_disciplina = f'WHERE id_disciplina = {id_disciplina}' if id_disciplina else ''
+
+    query = f"""
+        SELECT 
+            l.id AS id_link,
+            MIN(titulo) AS titulo,
+            MIN(link) AS link,
+            MIN(picture) AS picture,
+            MIN(username) AS username
+        FROM
+            teste.links AS l
+                INNER JOIN
+            users AS u ON l.id_user = u.id
+        {filter_disciplina}
+        GROUP BY l.id;
+    """
+
+    _ = cur.execute(query)
+
+    links = cur.fetchall()
+
+    cur.close()
+
+    return links
 
 
 def getTopDisciplinas(n, categoria):

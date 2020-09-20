@@ -14,7 +14,7 @@ __Legenda__
 
 ### Sprint Planning
 1. __Home__
-* Barra de busca (Live Search) - (Felipe, Wesley) :construction_worker: ;
+* Barra de busca (Live Search) - (Felipe, Wesley) :heavy_check_mark: ;
 * Top disciplinas com mais aprovações e mais reprovações- (Henrique, Vitor) :heavy_check_mark:;
 * Botão para página de login - (Henrique, Vitor) :heavy_check_mark: ;
 2. __Disciplinas__
@@ -24,14 +24,14 @@ __Legenda__
 * Opção para usuário dar nota a disciplina - (Felipe, Wesley) :heavy_check_mark: ;
 * Sessao para links úteis da disciplina - (Felipe, Wesley) :heavy_check_mark: ;
 3. __API dos dados__
-* Gerar lista das disciplinas - (Henrique, Vitor);
+* Gerar lista das disciplinas - (Henrique, Vitor) :heavy_check_mark: ;
 * Adicionar nova disciplina - (Henrique, Vitor):heavy_check_mark: ;
-* Pesquisa com base no nome ou id da disciplina - (Henrique, Vitor);
+* Pesquisa com base no nome ou id da disciplina - (Henrique, Vitor) :heavy_check_mark: ;
 * Adicionar usuário - (Henrique, Vitor):heavy_check_mark: ;
 * Verificar usuário - (Henrique, Vitor):heavy_check_mark: ;
 4. __Sistema de login__
 * Página de cadastro - (Felipe, Wesley) :heavy_check_mark: ;
-* Verificar se é um email válido - (Henrique, Vitor) :construction_worker: ;
+* Verificar se é um email válido - (Henrique, Vitor) :heavy_check_mark: ;
 * Página de login - (Henrique, Vitor) :heavy_check_mark: ;
 5. __Fomentar banco de dados com dados públicos da UFMG sobre disciplinas__
 * Raspar dados disponibilizados pela Pró-Grad - (Felipe, Wesley); :construction_worker:

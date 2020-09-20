@@ -1,15 +1,15 @@
 from backend import app, mysql
 from backend.utils import RegisterForm
 from backend.utils import success_response, error_response
-from backend.api import cadastroComentario, cadastroUsuario, cadastroDisciplina, cadastroAvaliacaoDisciplina
-from backend.api import getDisciplina, getDisciplinas, getComentarios, checkUsuario, getTopDisciplinas
+from backend.api import cadastroComentario, cadastroUsuario, cadastroDisciplina, cadastroLink, cadastroAvaliacaoDisciplina, cadastroAvaliacaoComentario
+from backend.api import getDisciplina, getDisciplinas, getLinks, getComentarios, checkUsuario, getTopDisciplinas
 
 from passlib.hash import sha256_crypt
 
 from flask import render_template, flash, redirect, url_for, session, request, jsonify
 
 
-# Disable dashboard if user is logged in:
+# 
 from functools import wraps
 def is_logged_in(f):
     @wraps(f)
@@ -133,6 +133,13 @@ def apiComentarios(id_disciplina):
     return jsonify(data)
 
 
+# traz os comentarios de uma disciplina
+@app.route('/api/links/<int:id_disciplina>')
+@is_logged_in
+def apiLinks(id_disciplina):
+    data = getLinks(id_disciplina)
+    return jsonify(data)
+
 
 @app.route('/api/disciplinas/top/<int:n>/<string:categoria>')
 def apiTopDisciplinas(n, categoria):
@@ -186,6 +193,24 @@ def apiCadastroComentario():
         return error_response(message)
 
 
+# cadastra um novo link
+@app.route('/api/cadastro/link', methods=['POST'])
+@is_logged_in
+def apiCadastroLink():
+    r = request.get_json()
+
+    id_disciplina = r.get('id_disciplina')
+    titulo = r.get('titulo')
+    link = r.get('link')
+    id_user = session.get('id')
+
+    success, message = cadastroLink(id_user, id_disciplina, titulo, link)
+    if success:
+        return success_response()
+    else:
+        return error_response(message)
+
+
 # cadastro uma nova avaliacao de uma disciplina
 @app.route('/api/cadastro/avaliacao_disciplina', methods=['POST'])
 @is_logged_in
@@ -197,6 +222,24 @@ def apiCadastroAvaliacaoDisciplina():
     id_user = session.get('id')
 
     success, message = cadastroAvaliacaoDisciplina(penoso_mamao, id_disciplina, id_user)
+
+    if success:
+        return success_response()
+    else:
+        return error_response(message)
+
+
+# cadastro uma nova avaliacao de uma disciplina
+@app.route('/api/cadastro/avaliacao_comentario', methods=['POST'])
+@is_logged_in
+def apiCadastroAvaliacaoComentario():
+    r = request.get_json()
+
+    id_comentario = r.get('id_comentario')
+    like_dislike = r.get('like_dislike')
+    id_user = session.get('id')
+
+    success, message = cadastroAvaliacaoComentario(id_comentario, like_dislike, id_user)
 
     if success:
         return success_response()
