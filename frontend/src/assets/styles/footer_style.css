@@ -1,0 +1,22 @@
+#myFooter{
+    font-family: "Roboto",sans-serif;
+    font-weight: 300;
+    /* bottom: 0 !important; */
+    background: #3e4551;
+    color: rgba(255,255,255,0.6);
+    z-index: 0 !important; 
+}
+#myFooter a{
+    color: #fff;
+}
+.footer-copyright{
+    background: #323741;
+    color: rgba(255,255,255,0.6);
+}
+.footer-copyright a{
+    color: #fff;
+}
+.title{
+    color: white;
+    font-weight: 700 !important;
+}

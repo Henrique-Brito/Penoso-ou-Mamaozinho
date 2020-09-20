@@ -31,7 +31,6 @@
     </div>
     <b-tabs card>
       <b-tab title="Comentários" active>
-        <!-- <button class="btn" @click="adicionar_comentario = !adicionar_comentario">Adicionar comentário</button> -->
         <div class="comment_button">
           <div v-if="adicionar_comentario">
             <b-alert v-show="comentario_erro" show variant="danger">{{ comentario_erro }}</b-alert>
@@ -55,6 +54,7 @@
         <CommentBox 
           v-for="comment in comments"
           v-bind:key="comment.id_comentario"
+          v-bind:id="comment.id_comentario"
           v-bind:name="comment.username"
           v-bind:picture="comment.picture"
           v-bind:comment="comment.texto"
@@ -63,10 +63,46 @@
         />
       </b-tab>
       <b-tab title="Links úteis">
-        <p> {{ selected }} </p>
-      </b-tab>
-      <b-tab title="Adicionar comentario">
-        <p> {{disciplina}} </p>
+        <div class="comment_button">
+          <div v-if="adicionar_link">
+            <b-alert v-show="link_erro" show variant="danger">{{ link_erro }}</b-alert>
+            <b-button pill variant="danger" class="close_button" @click="adicionar_link = !adicionar_link">Fechar</b-button>
+            <b-button pill variant="success" class="btn text-center" @click="cadastrar_link">Enviar</b-button>
+          </div>
+          <div v-else>
+            <b-button pill variant="success" class="btn text-center" @click="adicionar_link = !adicionar_link">Adicionar link</b-button>
+          </div>
+          
+          <div class="comment_form" v-show="adicionar_link">
+            <label for="link_titulo">Titulo</label>
+            <b-form-input
+              id="link_titulo"
+              type="text"
+              v-model="link_titulo"
+              placeholder="Digite o titulo do seu link..."
+              rows="3"
+              max-rows="6"
+              class="link_container"
+            ></b-form-input>
+            <label for="link_url">Link</label>
+            <b-form-input
+              id="link_url"
+              type="url"
+              v-model="link_url"
+              placeholder="Cole sua URL..."
+              rows="3"
+              max-rows="6"
+            ></b-form-input>
+          </div>
+        </div>
+        <LinkBox 
+          v-for="link in links"
+          v-bind:key="link.id_comentario"
+          v-bind:name="link.username"
+          v-bind:picture="link.picture"
+          v-bind:link="link.link"
+          v-bind:titulo="link.titulo"
+        />
       </b-tab>
     </b-tabs>
   </b-container>
@@ -75,12 +111,14 @@
 
 <script>
 import CommentBox from '@/components/CommentBox.vue'
+import LinkBox from '@/components/LinkBox.vue'
 import Header from '@/components/Header.vue'
 
 export default {
   name: 'DisciplinaPagina',
   components: {
     CommentBox,
+    LinkBox,
     Header
   },
   data: () => {
@@ -88,6 +126,7 @@ export default {
       id_disciplina: '',
       disciplina: '',
       comments: [],
+      links: [],
       val_mamao: 0,
       val_penoso: 0,
       selected: '',
@@ -96,10 +135,14 @@ export default {
         { text: 'Mamão', value: 'mamao' }
       ],
       adicionar_comentario: false,
+      adicionar_link: false,
       comentario: '',
       teste: '',
       avaliacao_erro: '',
-      comentario_erro: ''
+      link_erro: '',
+      comentario_erro: '',
+      link_titulo: '',
+      link_url: ''
     }
   },
   methods: {
@@ -125,10 +168,40 @@ export default {
         })
       }
     },
+    cadastrar_link: function(e) {
+      e.preventDefault();
+      if(!this.link_url | !this.link_titulo) {
+        this.link_erro = "Escreva seu titulo e a url!"
+      }
+      else {
+        this.$http.post(this.$api_url+'/api/cadastro/link', {
+          id_disciplina: this.id_disciplina,
+          titulo: this.link_titulo,
+          url: this.link_url
+        })
+        .then(response => {
+           if(response.data.status === 'error'){
+            this.link_erro = response.data.message
+          }
+          else {
+            this.link_titulo = ''
+            this.link_url = ''
+            this.adicionar_link = false
+            this.get_links()
+          }
+        })
+      }
+    },
     get_comentarios: function() {
       this.$http.get(this.$api_url+'/api/comentarios/' + this.id_disciplina)
       .then(response => {
         this.comments = response.data
+      })
+    },
+    get_links: function() {
+      this.$http.get(this.$api_url + '/api/links/' + this.id_disciplina)
+      .then(response => {
+        this.links = response.data
       })
     },
     get_disciplina: function() {
@@ -148,6 +221,9 @@ export default {
         if(response.data.status === 'error'){
           this.avaliacao_erro = response.data.message
         }
+        else {
+          this.get_disciplina()
+        }
       })
     },
     disciplina: function() {
@@ -159,6 +235,7 @@ export default {
     this.id_disciplina = window.location.href.split('/').pop()
     this.get_disciplina()
     this.get_comentarios()
+    this.get_links()
   },
 }
 </script>

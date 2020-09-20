@@ -1,0 +1,39 @@
+.card-container {
+    display: flex;
+    background-color: #f7f7f7;
+    border-radius: 3rem;
+    padding: 1.2rem;
+    margin: 1.6rem;
+    min-height: 160px;
+}
+.user-container {
+    justify-content: center;
+    text-align: center;
+    min-width: 160px;
+    max-width: 160px;
+}
+.user-container p strong {
+  display: block;
+  overflow: hidden;
+}
+.comment-container {
+    margin-left: 1.2rem;
+    max-height: 300px;
+    overflow: auto;
+}
+img {
+    margin-bottom: 0.6rem;
+}
+.icon {
+    width: 50px;
+    border-radius: 1.2rem;
+}
+.comment-rating {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  max-height: 40px;
+}
+.rating-button {
+  border: 0;
+}

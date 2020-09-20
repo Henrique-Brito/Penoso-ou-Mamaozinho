@@ -1,101 +1,111 @@
 <template>
-<div class="fadeIn">
-<div class="table_ranking" style="display: flex">
-
- <div :class="class2">
-  <div class="header">
-   <h3>Segundo Lugar</h3>
-  </div>
-  <div class="block1">
-   <h2>{{second_course.name}}</h2>
-   <p><strong>Nota</strong></p>
-   <p>{{second_course.rating}}</p>
-  </div>
-  <div class="block2">
-   <p><strong>Número de votos</strong></p>
-   <p>{{second_course.numberVotes}}</p>
-  </div>
-  <div class="block3">
-   <p><strong>Número de votos</strong></p>
-   <p>{{second_course.numberVotes}}</p>
-  </div>
-  <div class="block4">
-   <div class="place">2</div>
-  </div>
- </div>
+<div class="fadeIn table_ranking" v-if="ready" style="display: flex">
 
     <div :class="class1">
-    <div class="header">
-    <h3>Primeiro Lugar</h3>
-    </div>
-    <div class="block1">
-    <h2>{{first_course.name}}</h2>
-    <p><strong>Nota</strong></p>
-    <p>{{first_course.rating}}</p>
-    </div>
-    <div class="block2">
-    <p><strong>Número de votos</strong></p>
-    <p>{{first_course.numberVotes}}</p>
-    </div>
-    <div class="block3">
-    <p><strong>Recorrido</strong></p>
-    <p>La Moneda</p>
-    </div>
-    <div class="block4">
-    <div class="place">1</div>
-    </div>
+        <div class="header">
+            <h3>Primeiro Lugar</h3>
+        </div>
+        <div class="block1">
+            <h2>
+                <a v-bind:href="url_disciplina+primeiro_lugar.id">
+                    {{primeiro_lugar.nome}}    
+                </a>
+            </h2>
+            <p><strong>Nota</strong></p>
+            <p>{{primeiro_lugar.razao * 5}}</p>
+        </div>
+        <div class="block2">
+            <p><strong>Número de votos</strong></p>
+            <p>{{primeiro_lugar.num_votos}}</p>
+        </div>
+        <div class="block3">
+            <p><strong>Número de comentários</strong></p>
+            <p>{{primeiro_lugar.num_comentarios}}</p>
+        </div>
+        <div class="block4">
+            <div class="place">1</div>
+        </div>
     </div>
 
- <div :class="class3">
-  <div class="header">
-   <h3>Terceiro Lugar</h3>
-  </div>
-  <div class="block1">
-   <h2>{{third_course.name}}</h2>
-   <p><strong>Nota</strong></p>
-   <p>{{third_course.rating}}</p>
-  </div>
-  <div class="block2">
-   <p><strong>Número de votos</strong></p>
-   <p>{{third_course.numberVotes}}</p>
-  </div>
-  <div class="block3">
-   <p><strong>Recorrido</strong></p>
-   <p>La Moneda</p>
-  </div>
-  <div class="block4">
-   <div class="place">3</div>
-  </div>
- </div>
-</div>  
+    <div :class="class2">
+        <div class="header">
+            <h3>Segundo Lugar</h3>
+        </div>
+        <div class="block1">
+            <h2>
+                <a v-bind:href="url_disciplina+segundo_lugar.id">
+                    {{segundo_lugar.nome}}    
+                </a>
+            </h2>
+            <p><strong>Nota</strong></p>
+            <p>{{segundo_lugar.razao * 5}}</p>
+        </div>
+        <div class="block2">
+            <p><strong>Número de votos</strong></p>
+            <p>{{segundo_lugar.num_votos}}</p>
+        </div>
+        <div class="block3">
+            <p><strong>Número de comentários</strong></p>
+            <p>{{segundo_lugar.num_comentarios}}</p>
+        </div>
+        <div class="block4">
+            <div class="place">2</div>
+        </div>
+    </div>
+
+    
+
+    <div :class="class3">
+        <div class="header">
+            <h3>Terceiro Lugar</h3>
+        </div>
+        <div class="block1">
+            <h2>
+                <a v-bind:href="url_disciplina+terceiro_lugar.id">
+                    {{terceiro_lugar.nome}}    
+                </a>
+            </h2>
+            <p><strong>Nota</strong></p>
+            <p>{{terceiro_lugar.razao * 5}}</p>
+        </div>
+        <div class="block2">
+            <p><strong>Número de votos</strong></p>
+            <p>{{terceiro_lugar.num_votos}}</p>
+        </div>
+        <div class="block3">
+            <p><strong>Número de comentários</strong></p>
+            <p>{{terceiro_lugar.num_comentarios}}</p>
+        </div>
+        <div class="block4">
+            <div class="place">3</div>
+        </div>
+    </div>
 </div>
 </template>
 
 <script>
-
 export default {
     data: function() {
         return {
-            first_ready: false,
-            second_ready: false,
-            third_ready: false,
             class2: "col-sm-4 ranking r2 animated ",
             class3: "col-sm-4 ranking r3 animated ",
-            class1: "col-sm-4 ranking r1 animated first "
+            class1: "col-sm-4 ranking r1 animated first ",
+            ready: false,
+            url_disciplina: "/disciplina/"
         }
     },
     props: {
-        first_course: Object,
-        second_course: Object,
-        third_course: Object
+        primeiro_lugar: Object,
+        segundo_lugar: Object,
+        terceiro_lugar: Object
     },
     methods: {
-        imReady: function() {
-            this.first_ready = true
-        }
     },
     mounted: function() {
-        let time = 0
+        let time = 300
+        setTimeout( ()=>{
+            this.ready = true
+        }, time);
         setTimeout( ()=>{
             this.class2 += "slideInUp"
         }, time);
@@ -109,164 +119,6 @@ export default {
 }
 </script>
 
-<style scoped>
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300);
-body {
-  background-color: #122548;
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  overflow: hidden;
-}
-
-.table_ranking {
-  padding: 50px 100px;
-}
-.table_ranking .ranking {
-  background-color: white;
-  padding: 0;
-  visibility: hidden;
-  margin: 15px 0 30px 0;
-  order: 2;
-  text-align: center;
-}
-.table_ranking .ranking.slideInUp {
-  display: block;
-  visibility: visible;
-}
-.table_ranking .ranking.first {
-  box-shadow: 0 0 24px rgba(0, 0, 0, 0.15);
-  margin: 0 0 40px 0;
-  order: 1 !important;
-  z-index: 123;
-}
-.table_ranking .ranking.first .header {
-  background-color: #ffa409;
-  text-shadow: 1px 3px 2px rgba(0, 0, 0, 0.3);
-}
-.table_ranking .ranking.first h2 {
-  margin-bottom: 45px;
-  font-weight: 300;
-}
-.table_ranking .ranking.first .block1,
-.table_ranking .ranking.first .block2,
-.table_ranking .ranking.first .block3,
-.table_ranking .ranking.first .block4 {
-  background: rgba(255, 255, 255, 0.5);
-  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 65%, rgba(242, 242, 242, 0.5) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.5)), color-stop(65%, rgba(246, 246, 246, 0.5)), color-stop(100%, rgba(242, 242, 242, 0.5)));
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 65%, rgba(242, 242, 242, 0.5) 100%);
-  background: -o-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 65%, rgba(242, 242, 242, 0.5) 100%);
-  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 65%, rgba(242, 242, 242, 0.5) 100%);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 65%, rgba(242, 242, 242, 0.5) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2f2f2', GradientType=0 );
-  padding: 20px 15px 6px 15px;
-}
-.table_ranking .ranking.first .block4 {
-  padding-top: 80px;
-}
-.table_ranking .ranking.first .block4 .place {
-  background-color: #E6353B;
-  line-height: 1.55em;
-  height: 68px;
-  font-size: 2.5em;
-  position: absolute;
-  width: 68px;
-  margin: auto;
-  top: 75px;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-.table_ranking .ranking .header {
-  background-color: #e49000;
-}
-.table_ranking .ranking .header h3 {
-  color: white !important;
-  font-weight: 300;
-  font-size: 1.2em;
-  margin: 0;
-  padding: 12px;
-}
-.table_ranking .ranking h2 {
-  color: #122548;
-  height: 60px;
-  font-size: 2em;
-  font-weight: 300;
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-.table_ranking .ranking p {
-  color: #333;
-  font-weight: 300;
-  font-size: 1.2em;
-  line-height: .9em;
-}
-.table_ranking .ranking .block1,
-.table_ranking .ranking .block2,
-.table_ranking .ranking .block3,
-.table_ranking .ranking .block4 {
-  background: #fafafa;
-  background: -moz-linear-gradient(top, #fafafa 0%, #f6f6f6 65%, #ececec 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, #fafafa), color-stop(65%, #f6f6f6), color-stop(100%, #ececec));
-  background: -webkit-linear-gradient(top, #fafafa 0%, #f6f6f6 65%, #ececec 100%);
-  background: -o-linear-gradient(top, #fafafa 0%, #f6f6f6 65%, #ececec 100%);
-  background: -ms-linear-gradient(top, #fafafa 0%, #f6f6f6 65%, #ececec 100%);
-  background: linear-gradient(to bottom, #fafafa 0%, #f6f6f6 65%, #ececec 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#f0f0f0', GradientType=0 );
-  padding: 20px 0 6px 0;
-}
-.table_ranking .ranking .block4 {
-  background-color: white !important;
-  padding-top: 55px;
-  position: relative;
-}
-.table_ranking .ranking .block4 .place {
-  background-color: #ce1a20;
-  border: 5px solid white;
-  border-radius: 50%;
-  color: white;
-  line-height: 1.8em;
-  height: 54px;
-  font-size: 1.7em;
-  position: absolute;
-  width: 54px;
-  margin: auto;
-  top: 45px;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-
-/* ORDER FIRST PLACE RESPONSIVE */
-@media only screen and (max-width: 768px) {
-  body {
-    overflow: auto;
-  }
-
-  .ta {
-    order: 2;
-  }
-
-  .table_ranking {
-    display: flex;
-    flex-wrap: wrap;
-    padding-right: 20px;
-    padding-left: 20px;
-  }
-  .table_ranking .ranking {
-    width: 100%;
-  }
-
-  .na {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    order: 1 !important;
-  }
-  .na h3 {
-    display: block !important;
-    width: 100%;
-  }
-}
-
+<style src='@/assets/styles/ranking_courses_style.css' scoped>
+    @import url(https://fonts.googleapis.com/css?family=Lato:400,300);
 </style>
