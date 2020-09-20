@@ -34,8 +34,8 @@ __Legenda__
 * Verificar se é um email válido - (Henrique, Vitor) :heavy_check_mark: ;
 * Página de login - (Henrique, Vitor) :heavy_check_mark: ;
 5. __Fomentar banco de dados com dados públicos da UFMG sobre disciplinas__
-* Raspar dados disponibilizados pela Pró-Grad - (Felipe, Wesley); :construction_worker:
-* Integrar banco de dados do PoM com dados públicos das disciplinas - (Felipe, Wesley); :construction_worker:
+* Raspar dados disponibilizados pela Pró-Grad - (Felipe, Wesley); :heavy_check_mark:
+* Integrar banco de dados do PoM com dados públicos das disciplinas - (Felipe, Wesley); :heavy_check_mark:
 
 ### Tecnologia:
 * __Frontend__: vue.js
