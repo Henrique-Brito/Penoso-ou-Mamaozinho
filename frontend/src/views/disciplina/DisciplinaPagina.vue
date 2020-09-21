@@ -177,7 +177,7 @@ export default {
         this.$http.post(this.$api_url+'/api/cadastro/link', {
           id_disciplina: this.id_disciplina,
           titulo: this.link_titulo,
-          url: this.link_url
+          link: this.link_url
         })
         .then(response => {
            if(response.data.status === 'error'){
