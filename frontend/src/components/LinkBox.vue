@@ -9,7 +9,7 @@
     <div class="comment-container">
       <strong> {{ titulo }} </strong>
       <p>
-        <a :href="link"> {{ link }} </a>
+        <a v-bind:href="link"> {{ link }} </a>
       </p>
     </div>
 </div>

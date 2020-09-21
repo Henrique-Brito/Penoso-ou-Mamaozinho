@@ -12,7 +12,7 @@
                 </a>
             </h2>
             <p><strong>Nota</strong></p>
-            <p>{{primeiro_lugar.razao * 5}}</p>
+            <p>{{(primeiro_lugar.razao * 5).toFixed(2)}}</p>
         </div>
         <div class="block2">
             <p><strong>Número de votos</strong></p>
@@ -38,7 +38,7 @@
                 </a>
             </h2>
             <p><strong>Nota</strong></p>
-            <p>{{segundo_lugar.razao * 5}}</p>
+            <p>{{(segundo_lugar.razao * 5).toFixed(2)}}</p>
         </div>
         <div class="block2">
             <p><strong>Número de votos</strong></p>
@@ -66,7 +66,7 @@
                 </a>
             </h2>
             <p><strong>Nota</strong></p>
-            <p>{{terceiro_lugar.razao * 5}}</p>
+            <p>{{(terceiro_lugar.razao * 5).toFixed(2)}}</p>
         </div>
         <div class="block2">
             <p><strong>Número de votos</strong></p>
